@@ -39,4 +39,3 @@ If you’re authorized and the site allows framing, replace the iframe source:
 
 ## Ethics
 For **educational use only**. Do not test against systems you do not own or lack explicit permission to assess.
-
