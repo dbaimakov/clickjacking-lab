@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Account Settings (Demo Target)</title>
+<style>
+  body { font-family: system-ui, Arial; margin: 3rem; line-height: 1.4; }
+  .card { max-width: 640px; border: 1px solid #ddd; padding: 1.5rem; border-radius: .5rem; }
+  button { padding: .75rem 1.25rem; font-size: 1rem; }
+</style>
+<h1>Account Settings — Demo Target</h1>
+<div class="card">
+  <p>This page represents a frameable sensitive action for demo purposes only.</p>
+  <form onsubmit="alert('Sensitive action executed (DEMO).'); return false;">
+    <button type="submit" id="danger">Delete profile (demo)</button>
+  </form>
+</div>
+</html>

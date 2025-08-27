@@ -1,5 +1,11 @@
 # Clickjacking Lab
 
+This repository demonstrates a clear proof-of-concept (PoC) for **clickjacking (UI redressing)**.
+
+## How it worksThe PoC loads a target page inside an `<iframe>` and places a deceptive, visible button on top.  
+When a user clicks the visible button, the actual click lands on the **framed** page beneath it.
+# Clickjacking Lab
+
 This repository demonstrates a simple proof of concept (PoC) for **clickjacking**.
 
 ## How it works

